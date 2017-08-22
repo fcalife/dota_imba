@@ -434,7 +434,7 @@ function GameMode:ItemAddedFilter( keys )
 	if item:GetName() then
 		item_name = item:GetName()
 	end
-	
+
 	-------------------------------------------------------------------------------------------------
 	-- Rune pickup logic
 	-------------------------------------------------------------------------------------------------
@@ -1081,16 +1081,7 @@ end
 	The hero parameter is the hero entity that just spawned in
 ]]
 function GameMode:OnHeroInGame(hero)
-	if not hero.FirstSpawn then
-		if hero:GetTeamNumber() == 2 then
-			PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(), GoodCamera)
-			FindClearSpaceForUnit(hero, GoodCamera:GetAbsOrigin(), false)
-		else
-			PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(), BadCamera)					
-			FindClearSpaceForUnit(hero, BadCamera:GetAbsOrigin(), false)
-		end
-	end
-	hero.FirstSpawn = true
+
 end
 
 --[[	This function is called once and only once when the game completely begins (about 0:00 on the clock).  At this point,

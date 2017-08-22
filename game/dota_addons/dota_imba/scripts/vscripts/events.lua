@@ -125,6 +125,13 @@ local time = 0.0
 					hero:AddEffects(EF_NODRAW)
 					hero:SetDayTimeVisionRange(450)
 					hero:SetNightTimeVisionRange(450)
+					if hero:GetTeamNumber() == 2 then
+						PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(), GoodCamera)
+						FindClearSpaceForUnit(hero, GoodCamera:GetAbsOrigin(), false)
+					else
+						PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(), BadCamera)					
+						FindClearSpaceForUnit(hero, BadCamera:GetAbsOrigin(), false)
+					end
 				end
 			end
 			if time < 1.4 then
